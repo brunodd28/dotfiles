@@ -1,0 +1,159 @@
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    font-family: "SF Pro Text";
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/* Barra principal */
+window#waybar {
+    background: rgba(20, 20, 20, 0.55);
+    border-radius: 14px;
+    margin: 0px;
+    transition-property: background-color;
+    transition-duration: .3s;
+}
+
+/* Tooltip */
+tooltip {
+    background: rgba(25, 25, 25, 0.95);
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+tooltip label {
+    color: #ffffff;
+    padding: 4px;
+}
+
+/* Workspaces */
+#workspaces button {
+    font-family: "Font Awesome 7 Free Solid";
+    font-weight: 900;
+    font-size: 10px;
+    color: #3a3a3a; /* MUY oscuro */
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    min-width: 0;
+    padding: 0 6px;
+}
+
+#workspaces button.active {
+    color: rgba(255,255,255,1);
+}
+
+#workspaces button:hover {
+    color: rgba(255,255,255,0.2);
+}
+
+/* estado cerrado */
+#custom-sys.closed {
+    transition: all 200ms ease;
+}
+
+/* estado abierto */
+#custom-sys.open {
+    opacity: 1;
+    padding: 0 10px;
+    transition: all 250ms ease;
+}
+
+/* animación general */
+#custom-sys {
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Módulos generales */
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#wireplumber,
+#tray,
+#custom-launcher,
+#bluetooth,
+#backlight,
+#language {
+    padding: 0 3px;
+    margin: 0px 3px;
+    border-radius: 12px;
+    color: #ffffff;
+}
+
+/* Clock */
+#clock {
+    font-weight: 500;
+}
+
+/* Audio */
+#pulseaudio.muted {
+    color: rgba(255,255,255,0.5);
+}
+
+/* Batería */
+#battery.warning {
+    color: #ffd166;
+}
+
+#battery.critical {
+    color: #ff5f56;
+}
+
+/* Red desconectada */
+#network.disconnected {
+    color: rgba(255,255,255,0.5);
+}
+
+/* Tray */
+#tray {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+/* Launcher */
+#custom-launcher {
+    font-size: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+/* Separación */
+.modules-left,
+.modules-center,
+.modules-right {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #ffffff;
+
+}
+/* Animación suave */
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#workspaces button {
+    transition: all 0.2s ease;
+}
+
+/* Hover global */
+#clock:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#network:hover,
+#pulseaudio:hover,
+#tray:hover,
+#bluetooth:hover,
+#backlight:hover {
+    background: rgba(255,255,255,0);
+}
+ #custom-spotify {
+ 	margin-left: 10px;
+ }

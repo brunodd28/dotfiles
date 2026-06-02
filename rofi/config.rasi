@@ -1,0 +1,108 @@
+/* ==================================================
+   Rofi - macOS Spotlight Style
+   ================================================== */
+
+configuration {
+    modi: "drun,run";
+    show-icons: true;
+    display-drun: "Applications";
+    drun-display-format: "{icon}  {name}";
+    icon-theme: "Papirus";
+    font: "SF Pro Text 14";
+}
+
+* {
+    bg: rgba(20, 20, 20, 0.78);
+    bg-alt: rgba(35, 35, 35, 0.65);
+
+    fg: #ffffff;
+    fg-alt: #cfcfcf;
+
+    border: rgba(255,255,255,0.08);
+
+    selected: rgba(255,255,255,0.10);
+    active: #ffffff;
+
+    border-radius: 18px;
+}
+
+window {
+    transparency: "real";
+    location: center;
+    anchor: center;
+
+    fullscreen: false;
+    width: 620px;
+
+    background-color: @bg;
+
+    border: 1px;
+    border-color: @border;
+
+    border-radius: 18px;
+
+    padding: 22px;
+}
+
+mainbox {
+    spacing: 14px;
+    children: [ "inputbar", "listview" ];
+}
+
+inputbar {
+    background-color: transparent;
+    border: 0px;
+
+    children: [  "entry" ];
+}
+
+
+entry {
+    placeholder: "Search";
+    placeholder-color: rgba(255,255,255,0.35);
+
+    text-color: @fg;
+
+    background-color: transparent;
+
+    font: "SF Pro Text 20";
+
+    blink: false;
+    cursor-width: 0px;
+}
+
+listview {
+    lines: 6;
+    columns: 1;
+    border: none;
+    background-color: transparent;
+	padding: 2px;
+    spacing: 8px;
+
+    scrollbar: false;
+}
+
+element {
+    padding: 10px;
+    border-radius: 12px;
+
+    background-color: transparent;
+    text-color: @fg-alt;
+}
+
+element selected {
+    background-color: @selected;
+    text-color: @fg;
+}
+
+element-icon {
+    size: 26px;
+    margin: 0 12px 0 0;
+}
+
+element-text {
+    vertical-align: 0.5;
+        highlight: bold;
+
+}
+

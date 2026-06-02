@@ -1,0 +1,209 @@
+/* ==========================================
+   RESET GENERAL
+   ========================================== */
+* {
+    font-family: "SF Pro Display";
+    all: unset;
+}
+
+window.control-center-window {
+    background-color: transparent;
+}
+
+/* ==========================================
+   CONTENEDOR PRINCIPAL
+   ========================================== */
+.menu-container {
+    background-color: rgba(30, 30, 30, 0.45);
+    border-radius: 32px; /* Más curvo */
+    padding: 22px;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ==========================================
+   CAJAS MÓDULOS (Islas)
+   ========================================== */
+.top-header, 
+.conn-module, 
+.slider-box {
+    background-color: rgba(255, 255, 255, 0.08); /* Apenas gris transparente */
+    border-radius: 24px; /* Súper curvo */
+    padding: 14px 18px;
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ==========================================
+   TOP HEADER (Perfil y Energía)
+   ========================================== */
+.profile-name {
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.profile-uptime {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 3px;
+}
+
+/* Botones Mini de energía */
+.btn-mini {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 16px; /* Círculos/Cuadrados curvos */
+    padding: 12px;
+    transition: all 0.2s;
+}
+
+.btn-mini:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.btn-power-mini:hover {
+    background-color: rgba(255, 69, 58, 0.9);
+}
+
+.btn-mini image {
+    font-size: 1.2rem;
+}
+
+/* ==========================================
+   CONECTIVIDAD (Wi-Fi, BT, Batería)
+   ========================================== */
+.conn-module {
+    padding: 10px; 
+}
+
+/* El Círculo Toggle */
+.toggle-circle {
+    background-color: rgba(255, 255, 255, 0.15); /* Gris apagado */
+    border-radius: 100%; /* Círculo perfecto */
+    min-width: 42px;
+    min-height: 42px;
+    margin-right: 12px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.toggle-circle image {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Estado Encendido (Blanco/Azul macOS) */
+.toggle-circle.active {
+    background-color: #0a84ff; /* Azul Apple (o #ffffff para blanco) */
+}
+
+.toggle-circle.active image {
+    color: #ffffff;
+}
+
+.toggle-circle:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+.toggle-circle.active:hover {
+    background-color: #3399ff; /* Si usás blanco en vez de azul, cambialo a rgba(255, 255, 255, 0.8) */
+}
+/* El Text y Menú */
+.conn-menu-btn {
+    border-radius: 14px;
+    padding: 4px 8px;
+    transition: background 0.2s;
+}
+
+.conn-module:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* Efecto sutil al pasar sobre el texto */
+}
+
+.conn-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.conn-subtitle {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.55);
+    margin-top: 2px;
+}
+
+/* ==========================================
+   SLIDERS
+   ========================================== */
+.slider-box image {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-right: 8px;
+}
+
+scale trough {
+    background-color: rgba(0, 0, 0, 0.35);
+    border-radius: 14px;
+    min-height: 26px; /* Más gordo */
+}
+
+scale highlight {
+    background-color: #ffffff;
+    border-radius: 14px;
+}
+
+scale slider {
+    background-color: transparent; 
+    box-shadow: none;
+    min-width: 0px;
+    min-height: 0px;
+}
+
+/* ==========================================
+   POPOVERS (Menús Desplegables)
+   ========================================== */
+popover {
+    background-color: rgba(30, 30, 30, 0.98);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 14px;
+    color: #ffffff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+}
+
+popover .popover-title {
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 12px;
+    margin-left: 5px;
+}
+
+popover button {
+    padding: 10px 12px;
+    border-radius: 12px;
+    transition: background 0.15s;
+}
+
+popover button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+popover button label {
+    font-weight: 500;
+}
+/* ==========================================
+   MENÚ ACORDEÓN (Intercalado)
+   ========================================== */
+.accordion-menu {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 18px;
+    padding: 12px;
+}
+
+.accordion-menu button {
+    padding: 10px 12px;
+    border-radius: 12px;
+    transition: background 0.15s;
+}
+
+.accordion-menu button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
