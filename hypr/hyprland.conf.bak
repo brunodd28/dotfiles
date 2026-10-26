@@ -1,0 +1,91 @@
+# This config is a STUB! This should never be generated.
+# Use the default lua config from https://github.com/hyprwm/Hyprland/blob/main/example/hyprland.lua
+
+env = XCURSOR_THEME,MacTahoe-cursors
+env = XCURSOR_SIZE,24
+
+monitor = , 1920x1080@120, 0x0, 1.25
+exec-once = waybar
+exec-once = hyprlock
+exec-once = hypridle
+exec-once = hyprpaper
+exec-once = ags run ~/.config/ags/app.tsx
+exec-once = hyprctl setcursor MacTahoe-cursors 24
+
+layerrule = blur on, match:namespace control-center
+layerrule = ignore_alpha 0.1, match:namespace control-center
+xwayland {
+    force_zero_scaling = true
+}
+general {
+    gaps_in = 2
+    gaps_out = 0
+    border_size = 1
+    col.active_border = rgba(bfbfbfee)
+    col.inactive_border = rgba(303030aa)
+}
+decoration {
+    rounding = 2
+    blur {
+        enabled = true
+        size = 8
+        passes = 3
+        vibrancy = 0.15
+    }
+}
+input {
+	touchpad {
+		natural_scroll=true
+	}
+}
+
+
+
+$mod = SUPER
+$mod2 = SUPER + SHIFT
+$terminal = alacritty
+$fileManager = dolphin
+$menu = rofi -show drun
+$lock = hyprlock
+$screenshot = grim -g "$(slurp)" - | wl-copy
+
+bind = $mod, 1, workspace, 1
+bind = $mod, 2, workspace, 2
+bind = $mod, 3, workspace, 3
+bind = $mod, 4, workspace, 4
+bind = $mod, 5, workspace, 5
+bind = $mod, 6, workspace, 6
+bind = $mod2, 1, movetoworkspace, 1
+bind = $mod2, 2, movetoworkspace, 2
+bind = $mod2, 3, movetoworkspace, 3
+bind = $mod2, 4, movetoworkspace, 4
+bind = $mod2, 5, movetoworkspace, 5
+bind = $mod2, 6, movetoworkspace, 6
+bind = $mod, mouse_up, workspace, e+1
+bind = $mod, mouse_down, workspace, e-1
+bind = $mod, left, movefocus, l
+bind = $mod, right, movefocus, r
+bind = $mod, up, movefocus, u
+bind = $mod, down, movefocus, d
+
+bind = $mod, C, exec, $terminal
+bind = $mod, Q, killactive,
+bind = $mod, M, exec, command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit
+bind = $mod, E, exec, $fileManager
+bind = $mod, V, togglefloating,
+bind = $mod, SPACE, exec, $menu
+bind = $mod2, Q, exec, $lock
+bind = , XF86MonBrightnessDown, exec, brightnessctl s 5%-
+bind = , XF86MonBrightnessUp, exec, brightnessctl s +5%
+bind = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bind = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bind = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bind = , XF86AudioPlay, exec, playerctl play-pause
+bind = , XF86AudioNext, exec, playerctl next
+bind = , XF86AudioPrev, exec, playerctl previous
+
+bind = $mod, F1, exec, brave
+bind = $mod, F2, exec, flatpak run com.spotify.Client
+
+
+bind = $mod SHIFT, s, exec, $screenshot
