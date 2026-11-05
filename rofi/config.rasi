@@ -1,6 +1,4 @@
-/* ==================================================
-   Rofi - macOS Spotlight Style
-   ================================================== */
+/* iPhone Spotlight / Liquid Glass inspired */
 
 configuration {
     modi: "drun,run";
@@ -9,21 +7,50 @@ configuration {
     drun-display-format: "{icon}  {name}";
     icon-theme: "Papirus";
     font: "SF Pro Text 14";
+    hover-select: true;
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
+
+    /* Mouse wheel moves one full page through the results. */
+    kb-page-prev: "ScrollUp";
+    kb-page-next: "ScrollDown";
+    ml-row-up: "";
+    ml-row-down: "";
 }
 
 * {
-    bg: rgba(20, 20, 20, 0.78);
-    bg-alt: rgba(35, 35, 35, 0.65);
+    bg: rgba(22, 25, 33, 0.42);
+    bg-alt: rgba(255, 255, 255, 0.07);
 
     fg: #ffffff;
-    fg-alt: #cfcfcf;
+    fg-alt: rgba(255, 255, 255, 0.78);
 
-    border: rgba(255,255,255,0.08);
+    border: rgba(255, 255, 255, 0.17);
 
-    selected: rgba(255,255,255,0.10);
+    selected: rgba(255, 255, 255, 0.15);
     active: #ffffff;
 
-    border-radius: 18px;
+    normal-background: transparent;
+    alternate-normal-background: transparent;
+    active-background: rgba(255, 255, 255, 0.04);
+    alternate-active-background: rgba(255, 255, 255, 0.04);
+    urgent-background: rgba(255, 255, 255, 0.04);
+    alternate-urgent-background: rgba(255, 255, 255, 0.04);
+    selected-normal-background: @selected;
+    selected-active-background: @selected;
+    selected-urgent-background: @selected;
+
+    normal-foreground: @fg-alt;
+    alternate-normal-foreground: @fg-alt;
+    active-foreground: @fg;
+    alternate-active-foreground: @fg;
+    urgent-foreground: @fg;
+    alternate-urgent-foreground: @fg;
+    selected-normal-foreground: @fg;
+    selected-active-foreground: @fg;
+    selected-urgent-foreground: @fg;
+
+    border-radius: 28px;
 }
 
 window {
@@ -32,16 +59,16 @@ window {
     anchor: center;
 
     fullscreen: false;
-    width: 620px;
+    width: 650px;
 
     background-color: @bg;
 
     border: 1px;
     border-color: @border;
 
-    border-radius: 18px;
+    border-radius: 28px;
 
-    padding: 22px;
+    padding: 18px;
 }
 
 mainbox {
@@ -49,26 +76,58 @@ mainbox {
     children: [ "inputbar", "listview" ];
 }
 
-inputbar {
+button-close {
+    expand: false;
+    content: "×";
+    action: "kb-cancel";
+    cursor: pointer;
+    font: "SF Pro Display 18";
+    text-color: rgba(255, 255, 255, 0.78);
     background-color: transparent;
     border: 0px;
+    width: 28px;
+    padding: 0px;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+}
 
-    children: [  "entry" ];
+inputbar {
+    background-color: rgba(255, 255, 255, 0.09);
+    border: 1px;
+    border-color: rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 11px 14px;
+
+    children: [ "textbox-search-icon", "entry", "button-close" ];
+}
+
+textbox-search-icon {
+    content: "⌕";
+    text-color: rgba(255, 255, 255, 0.68);
+    font: "SF Pro Display 18";
+    vertical-align: 0.5;
+    width: 28px;
+    expand: false;
+    padding: 0 7px 0 0;
 }
 
 
 entry {
     placeholder: "Search";
-    placeholder-color: rgba(255,255,255,0.35);
+    placeholder-color: rgba(255, 255, 255, 0.46);
 
     text-color: @fg;
 
     background-color: transparent;
 
-    font: "SF Pro Text 20";
+    font: "SF Pro Text 18";
+    expand: true;
+    horizontal-align: 0;
 
+    hide-cursor-on-empty: true;
     blink: false;
-    cursor-width: 0px;
+    cursor-width: 1px;
+    cursor-color: rgba(255, 255, 255, 0.9);
 }
 
 listview {
@@ -76,15 +135,15 @@ listview {
     columns: 1;
     border: none;
     background-color: transparent;
-	padding: 2px;
-    spacing: 8px;
+    padding: 3px;
+    spacing: 5px;
 
     scrollbar: false;
 }
 
 element {
-    padding: 10px;
-    border-radius: 12px;
+    padding: 9px 12px;
+    border-radius: 16px;
 
     background-color: transparent;
     text-color: @fg-alt;
@@ -93,16 +152,18 @@ element {
 element selected {
     background-color: @selected;
     text-color: @fg;
+    border: 1px;
+    border-color: rgba(255, 255, 255, 0.08);
 }
 
 element-icon {
-    size: 26px;
-    margin: 0 12px 0 0;
+    size: 29px;
+    margin: 0 13px 0 1px;
 }
 
 element-text {
     vertical-align: 0.5;
-        highlight: bold;
+    highlight: bold;
 
 }
 
