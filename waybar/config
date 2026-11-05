@@ -16,7 +16,7 @@
     "spacing": 0, // Gaps between modules (4px)
 
     "modules-left": [
-        //"custom/rofi",
+        "custom/rofi",
         "hyprland/workspaces",
         //"hyprland/submap",
         //"temperature",
@@ -40,9 +40,9 @@
         //"pulseaudio",
         "wireplumber",
         //"tray",
-        "battery",
+        "battery"
         //"custom/screenshot_t",
-        "custom/power"
+        //"custom/power"
     ],
 
 
@@ -78,11 +78,11 @@
 
 
     "custom/rofi": {
-        "format": "",
+        "format": "󰀻 ",
         "tooltip": false,
-        "on-click-right": "nwg-drawer",
-        "on-click": "wofi --show run",
-        "on-click-middle": "pkill -9 wofi"
+        //"on-click-right": "lo mismo pero ejecuta comandos abre apps etc",
+        "on-click": "rofi -show drun",
+        //"on-click-middle": "pkill -9 wofi"
     },
     "custom/screenshot_t":{
         "format":" ",
@@ -136,7 +136,7 @@
         "format": "{icon} {capacity}%",
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
-        "on-click": "ags toggle control-center-eDP-1",
+        "on-click": "ags toggle control-center",
         "format-icons": [
             " ",
             " ",
@@ -153,7 +153,7 @@
     	"format": "",
     	"format-disconnected": "󰤮",
    	    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-        "on-click": "ags toggle control-center-eDP-1",
+        "on-click": "ags toggle control-center",
         "on-click-right": "wl-copy $(ip address show up scope global | grep inet6 | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c6-)",
         "tooltip-format": " {bandwidthUpBits}  {bandwidthDownBits}\n{ifname}\n{ipaddr}/{cidr}\n",
         "tooltip-format-wifi": " {essid} {frequency}MHz\nStrength: {signaldBm}dBm ({signalStrength}%)\nIP: {ipaddr}/{cidr}\n {bandwidthUpBits}  {bandwidthDownBits}",
@@ -171,13 +171,14 @@
     "backlight": {
         "device": "intel_backlight",
         "format": "{icon} {percent}%",
-        "format-alt": "{percent}% {icon}",
-        "format-alt-click": "click-right",
+        //"format-alt": "{percent}% {icon}",
+        //"format-alt-click": "click-right",
         //"format-icons": ["", ""],
         "format-icons": ["", ""],
-        "on-click": "ags toggle control-center-eDP-1",
+        "on-click": "ags toggle control-center",
         "on-scroll-down": "brightnessctl s 5%-",
         "on-scroll-up": "brightnessctl s +5%",
+        "tooltip": false,
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -359,12 +360,13 @@
     },
 
     "wireplumber": {
-    	"on-click": "ags toggle control-center-eDP-1",
+        "tooltip": false,
+    	"on-click": "ags toggle control-center",
         //"on-click": "pavucontrol",
         "on-click-right": "amixer sset Master toggle 1>/dev/null",
         //on-click: "${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle";
-        //on-scroll-down: "${wpctl} set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.04+";
-        //on-scroll-up: "${wpctl} set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.04-";
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
         "format": "<span>{icon}</span>  {volume}%",
         "format-muted": " ",
         "format-source": "",
