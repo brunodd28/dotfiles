@@ -1,209 +1,75 @@
-/* ==========================================
-   RESET GENERAL
-   ========================================== */
 * {
-    font-family: "SF Pro Display";
-    all: unset;
+  font-family: "SF Pro Display", "Inter", sans-serif;
+  font-size: 13px;
+  color: #f5f4f1;
+  outline: none;
+  transition: 160ms ease;
 }
+button { border: none; box-shadow: none; background-image: none; }
+button:focus, button:focus-visible { outline: none; box-shadow: none; }
 
-window.control-center-window {
-    background-color: transparent;
+window.control-window { background: transparent; }
+.control-backdrop { background-color: rgba(0,0,0,0.22); }
+.panel {
+  min-width: 360px;
+  padding: 17px;
+  border: 1px solid rgba(255,255,255,0.24);
+  border-radius: 19px;
+  background: rgba(21, 23, 29, 0.50);
+  box-shadow: 0 18px 56px rgba(0,0,0,0.42);
 }
+.header { min-height: 48px; }
+.eyebrow { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; }
+.header-subtitle, .tile-subtitle, .helper-text {
+  color: rgba(237,240,246,0.55);
+  font-size: 11px;
+}
+.icon-button, .tile-chevron {
+  min-width: 34px; min-height: 34px; padding: 0;
+  border-radius: 11px;
+  background: rgba(255,255,255,0.075);
+}
+.icon-button { min-width: 30px; min-height: 30px; border-radius: 9px; }
+.icon-button:hover, .tile-chevron:hover,
+.network-row:hover { background: rgba(255,255,255,0.14); }
+.danger:hover { background: rgba(255,91,91,0.28); }
+.suspend-button:hover { background: rgba(255,157,64,0.28); }
+.restart-button:hover { background: rgba(78,146,255,0.30); }
+.lock-button:hover { background: rgba(164,105,255,0.30); }
+.section-label { margin-top: 2px; color: rgba(237,240,246,0.48); font-size: 10px; font-weight: 700; letter-spacing: 1.1px; }
+.tile {
+  min-width: 145px; min-height: 42px; padding: 4px;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.055);
+}
+.tile:hover { background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.13); }
+.tile-active { background: rgba(123,160,230,0.21); border-color: rgba(151,184,245,0.2); }
+.tile-active:hover { background: rgba(123,160,230,0.31); border-color: rgba(151,184,245,0.32); }
+.tile-icon { min-width: 26px; min-height: 26px; padding: 0; border-radius: 8px; background: transparent; }
+.tile-icon:hover, .tile-copy:hover, .tile-chevron:hover { background: transparent; }
+.tile-icon image { min-width: 19px; min-height: 19px; }
+.tile-active .tile-icon { background: transparent; }
+.tile-copy { padding: 0 5px; background: transparent; }
+.tile-title { font-weight: 650; font-size: 12px; }
+.tile-subtitle { margin-top: 3px; }
+.tile-chevron { min-width: 26px; min-height: 26px; padding: 0; border-radius: 50%; background: transparent; color: rgba(255,255,255,0.46); }
+.tile-chevron:hover { border-radius: 50%; background: rgba(255,255,255,0.16); }
+.slider-card { min-height: 48px; padding: 7px 9px 3px; border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; background: rgba(255,255,255,0.055); }
+.slider-card:hover { background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.13); }
+.slider-label { font-size: 10px; font-weight: 600; color: rgba(237,240,246,0.72); }
+.slider-control { min-height: 19px; }
+.slider-icon { min-width: 15px; min-height: 15px; color: rgba(255,255,255,0.72); }
+scale, scale:hover, scale:focus, scale:focus-visible { border: 0; outline: 0; box-shadow: none; background: transparent; }
+scale trough slider {
+  min-width: 30px; opacity: 0; border: 0; border-radius: 7px; outline: 0; box-shadow: 0 0 6px 1px rgba(255,255,255,0.28); background-image: none; background-color: rgba(255,255,255,0.95);
+}
+scale:hover trough slider, scale trough slider:hover { opacity: 1; }
+scale trough, scale trough:hover, scale trough:focus { border: 0; outline: 0; box-shadow: none; min-height: 6px; border-radius: 4px; background: rgba(255,255,255,0.42); }
+scale trough > highlight, scale trough > fill { min-height: 6px; border: 0; border-radius: 4px; background-image: none; background-color: #ffffff; color: #ffffff; box-shadow: none; }
+.helper-text { font-size: 10px; }
 
-/* ==========================================
-   CONTENEDOR PRINCIPAL
-   ========================================== */
-.menu-container {
-    background-color: rgba(30, 30, 30, 0.45);
-    border-radius: 32px; /* Más curvo */
-    padding: 22px;
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-/* ==========================================
-   CAJAS MÓDULOS (Islas)
-   ========================================== */
-.top-header, 
-.conn-module, 
-.slider-box {
-    background-color: rgba(255, 255, 255, 0.08); /* Apenas gris transparente */
-    border-radius: 24px; /* Súper curvo */
-    padding: 14px 18px;
-    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-/* ==========================================
-   TOP HEADER (Perfil y Energía)
-   ========================================== */
-.profile-name {
-    font-size: 1.1rem;
-    font-weight: 800;
-}
-
-.profile-uptime {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.6);
-    margin-top: 3px;
-}
-
-/* Botones Mini de energía */
-.btn-mini {
-    background-color: rgba(255, 255, 255, 0.12);
-    border-radius: 16px; /* Círculos/Cuadrados curvos */
-    padding: 12px;
-    transition: all 0.2s;
-}
-
-.btn-mini:hover {
-    background-color: rgba(255, 255, 255, 0.25);
-}
-
-.btn-power-mini:hover {
-    background-color: rgba(255, 69, 58, 0.9);
-}
-
-.btn-mini image {
-    font-size: 1.2rem;
-}
-
-/* ==========================================
-   CONECTIVIDAD (Wi-Fi, BT, Batería)
-   ========================================== */
-.conn-module {
-    padding: 10px; 
-}
-
-/* El Círculo Toggle */
-.toggle-circle {
-    background-color: rgba(255, 255, 255, 0.15); /* Gris apagado */
-    border-radius: 100%; /* Círculo perfecto */
-    min-width: 42px;
-    min-height: 42px;
-    margin-right: 12px;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.toggle-circle image {
-    font-size: 1.3rem;
-    color: rgba(255, 255, 255, 0.6);
-}
-
-/* Estado Encendido (Blanco/Azul macOS) */
-.toggle-circle.active {
-    background-color: #0a84ff; /* Azul Apple (o #ffffff para blanco) */
-}
-
-.toggle-circle.active image {
-    color: #ffffff;
-}
-
-.toggle-circle:hover {
-    background-color: rgba(255, 255, 255, 0.25);
-}
-.toggle-circle.active:hover {
-    background-color: #3399ff; /* Si usás blanco en vez de azul, cambialo a rgba(255, 255, 255, 0.8) */
-}
-/* El Text y Menú */
-.conn-menu-btn {
-    border-radius: 14px;
-    padding: 4px 8px;
-    transition: background 0.2s;
-}
-
-.conn-module:hover {
-    background-color: rgba(255, 255, 255, 0.15); /* Efecto sutil al pasar sobre el texto */
-}
-
-.conn-title {
-    font-size: 0.95rem;
-    font-weight: 700;
-}
-
-.conn-subtitle {
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.55);
-    margin-top: 2px;
-}
-
-/* ==========================================
-   SLIDERS
-   ========================================== */
-.slider-box image {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.8);
-    margin-right: 8px;
-}
-
-scale trough {
-    background-color: rgba(0, 0, 0, 0.35);
-    border-radius: 14px;
-    min-height: 26px; /* Más gordo */
-}
-
-scale highlight {
-    background-color: #ffffff;
-    border-radius: 14px;
-}
-
-scale slider {
-    background-color: transparent; 
-    box-shadow: none;
-    min-width: 0px;
-    min-height: 0px;
-}
-
-/* ==========================================
-   POPOVERS (Menús Desplegables)
-   ========================================== */
-popover {
-    background-color: rgba(30, 30, 30, 0.98);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 14px;
-    color: #ffffff;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
-}
-
-popover .popover-title {
-    font-weight: 800;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
-    margin-bottom: 12px;
-    margin-left: 5px;
-}
-
-popover button {
-    padding: 10px 12px;
-    border-radius: 12px;
-    transition: background 0.15s;
-}
-
-popover button:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-}
-
-popover button label {
-    font-weight: 500;
-}
-/* ==========================================
-   MENÚ ACORDEÓN (Intercalado)
-   ========================================== */
-.accordion-menu {
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 18px;
-    padding: 12px;
-}
-
-.accordion-menu button {
-    padding: 10px 12px;
-    border-radius: 12px;
-    transition: background 0.15s;
-}
-
-.accordion-menu button:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-}
-
+.network-list { min-width: 270px; padding: 12px; border: 1px solid rgba(255,255,255,0.13); border-radius: 15px; background: rgba(21,23,29,0.62); box-shadow: 0 10px 28px rgba(0,0,0,0.24); }
+.network-row { min-height: 35px; padding: 0 8px; border-radius: 9px; background: transparent; }
+.network-close { min-width: 26px; min-height: 26px; padding: 0; border-radius: 50%; background: transparent; }
+.network-close:hover { background: rgba(255,255,255,0.14); }

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "ags/gtk4",
+    "module": "ES2022",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "target": "ES2022",
+    "skipLibCheck": true,
+    "noEmit": true
+  },
+  "files": [
+    "env.d.ts",
+    "@girs/index.d.ts",
+    "app.tsx",
+    "widget.tsx",
+    "ConnItem.tsx"
+  ]
+}

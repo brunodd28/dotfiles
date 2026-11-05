@@ -1,0 +1,21 @@
+#!/bin/sh
+set -eu
+
+if [ "${1-}" != "set" ] || { [ "${2-}" != "80" ] && [ "${2-}" != "100" ]; }; then
+  echo "Uso: confighypr-battery-limit set {80|100}" >&2
+  exit 2
+fi
+
+if [ "$(id -u)" -ne 0 ]; then
+  echo "Este ayudante debe ejecutarse con pkexec." >&2
+  exit 1
+fi
+
+threshold=/sys/class/power_supply/BAT0/charge_control_end_threshold
+if [ ! -e "$threshold" ]; then
+  echo "No se encontró el control de límite de carga de BAT0." >&2
+  exit 1
+fi
+
+printf '%s\n' "$2" > "$threshold"
+[ "$(cat "$threshold")" = "$2" ]

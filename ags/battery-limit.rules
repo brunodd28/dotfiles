@@ -1,0 +1,4 @@
+polkit.addRule(function (action, subject) {
+    if (action.id === "com.bruno.confighypr.battery-limit" && subject.user === "bruno")
+        return polkit.Result.YES;
+});
